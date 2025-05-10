@@ -1,12 +1,12 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
-
 class DealabswebscrapItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    product_name = scrapy.Field()
+    price = scrapy.Field()
+    original_price = scrapy.Field()
+    discount = scrapy.Field()
+    link = scrapy.Field()
+    date_posted = scrapy.Field()
+    merchant = scrapy.Field()
+    comments = scrapy.Field()  # Liste des commentaires
+    votes = scrapy.Field()  # Votes positifs/négatifs

@@ -12,12 +12,15 @@ BOT_NAME = "dealabsWebScrap"
 SPIDER_MODULES = ["dealabsWebScrap.spiders"]
 NEWSPIDER_MODULE = "dealabsWebScrap.spiders"
 
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "dealabsWebScrap (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -60,11 +63,16 @@ ROBOTSTXT_OBEY = True
 #    "scrapy.extensions.telnet.TelnetConsole": None,
 #}
 
-# Configure item pipelines
-# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "dealabsWebScrap.pipelines.DealabswebscrapPipeline": 300,
-#}
+FEEDS = {
+    'results.json': {
+        'format': 'json',
+        'encoding': 'utf8',
+        'store_empty': False,
+        'indent': 4,
+    },
+}
+
+DOWNLOAD_DELAY = 1 
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
